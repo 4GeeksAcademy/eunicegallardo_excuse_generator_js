@@ -2,31 +2,33 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  let generateExcuse = () => {
-    let who = ["The dog", "My sister", "His turtle", "My bird"];
-    let action = ["bite", "took", "ate", "ran on"];
-    let what = ["my homework", "my smartphone", "my hat"];
-    let when = ["this morning.", "yesterday.", "before class."];
+window.onload = () => {
+  document.querySelector("#the-button").addEventListener("click", () => {
+    document.querySelector("#my-excuse").innerHTML = generateExcuse();
+  });
+  console.log("Hello world!");
+};
 
-    let randomWho = Math.floor(Math.random() * who.length);
-    let randomAction = Math.floor(Math.random() * action.length);
-    let randomWhat = Math.floor(Math.random() * what.length);
-    let randomWhen = Math.floor(Math.random() * when.length);
-    return (
-      who[randomWho] +
-      " " +
-      action[randomAction] +
-      " " +
-      what[randomWhat] +
-      " " +
-      when[randomWhen]
-    );
-  };
-  document.getElementById("excuse").innerHTML = generateExcuse();
+let generateExcuse = () => {
+  let who = ["The dog", "My sister", "His turtle", "My bird"];
+  let action = ["ate", "ran on", "crushed", "broke"];
+  let what = ["my homework", "the keys", "the car"];
+  let when = ["before the class", "right on time", "when I finished"];
 
-  console.log("Excuse Generator");
+  let whoIndex = Math.floor(Math.random() * who.length);
+  let actionIndex = Math.floor(Math.random() * action.length);
+  let whatIndex = Math.floor(Math.random() * what.length);
+  let whenIndex = Math.floor(Math.random() * when.length);
+
+  return (
+    who[whoIndex] +
+    " " +
+    action[actionIndex] +
+    " " +
+    what[whatIndex] +
+    " " +
+    when[whenIndex]
+  );
 };
